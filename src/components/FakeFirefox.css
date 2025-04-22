@@ -1,0 +1,159 @@
+.fake-firefox-window {
+    background: #1e1e1e;
+    color: #f1f1f1;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 18px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    font-family: 'Fira Code', monospace;
+}
+
+.firefox-inner {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* macOS-style circle buttons */
+.window-buttons {
+    display: flex;
+    gap: 6px;
+    padding: 8px 12px;
+    background-color: #2a2a2a;
+}
+
+.window-buttons .btn {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.btn.red {
+    background: #ff5f57;
+    cursor: pointer;
+}
+
+.btn.yellow {
+    background: #ffbd2e;
+}
+
+.btn.green {
+    background: #28c840;
+}
+
+/* Header with draggable tabs */
+.firefox-header {
+    background-color: #2a2a2a;
+    padding: 4px 12px;
+    display: flex;
+    align-items: center;
+    cursor: move;
+}
+
+.tabs {
+    display: flex;
+    gap: 10px;
+}
+
+.tab {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    background: #333;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.2s;
+}
+
+.tab:hover {
+    background: #444;
+}
+
+.tab.active {
+    background: #1e1e1e;
+    box-shadow: inset 0 -2px 0 #00bcd4;
+}
+
+.tab img {
+    width: 16px;
+    height: 16px;
+}
+
+/* Address/search bar */
+.browser-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    background: #2a2a2a;
+    border-bottom: 1px solid #444;
+}
+
+.browser-bar img {
+    width: 18px;
+    height: 18px;
+}
+
+.browser-bar input {
+    flex: 1;
+    padding: 4px 8px;
+    border: 1px solid #444;
+    background: #121212;
+    color: #fff;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 14px;
+}
+
+/* Main content area */
+.browser-content {
+    flex: 1;
+    overflow: auto;
+    padding: 1rem;
+    background-color: #121212;
+}
+
+.about-content {
+    padding: 1rem;
+}
+
+.about-content h1 {
+    color: #00bcd4;
+}
+
+.about-content p {
+    color: #ccc;
+}
+
+/* Preview area */
+.external-preview {
+    text-align: center;
+}
+
+.external-preview img {
+    width: 100%;
+    max-height: 350px;
+    object-fit: cover;
+    border: 1px solid #333;
+    margin-bottom: 1rem;
+    border-radius: 6px;
+}
+
+.external-preview a {
+    display: inline-block;
+    padding: 8px 16px;
+    background: #00bcd4;
+    color: #121212;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.external-preview a:hover {
+    background: #00acc1;
+}

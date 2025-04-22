@@ -1,0 +1,91 @@
+.terminal-window {
+  background-color: black;
+  color: #00ff00;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #000;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: absolute;
+}
+
+.terminal-header {
+  background-color: #2a2a2a;
+  color: white;
+  padding: 8px;
+  cursor: move;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row-reverse;
+}
+
+.terminal-header > button{
+  border-radius: 50%;
+  background-color: tomato;
+  border: 0;
+  color: white;
+}
+
+
+.terminal-header > button:hover{
+  background-color: rgb(243, 74, 44);
+  border: 0;
+}
+
+.terminal-output {
+  white-space: pre-wrap;
+  overflow-y: auto;
+  flex-grow: 1;
+  font-size: 15px;
+  padding: 10px;
+  font-family: monospace;
+  color: #ffffff;
+  background-color: #000;
+}
+
+.terminal-input {
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  background: #000;
+  color: #ffffff;
+  font-family: monospace;
+  border-top: 0px solid #222;
+}
+
+.terminal-input input {
+  background: transparent;
+  font-size: 15px;
+  border: none;
+  color: #ffffff;
+  flex-grow: 1;
+  outline: none;
+  font-family: inherit;
+}
+.window-buttons {
+  display: flex;
+  gap: 10px;
+  background-color: transparent;
+}
+
+.window-buttons .btn {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.btn.red {
+  background: #ff5f57;
+}
+
+.btn.yellow {
+  background: #ffbd2e;
+}
+
+.btn.green {
+  background: #28c840;
+}
