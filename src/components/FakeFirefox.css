@@ -1,7 +1,7 @@
 .fake-firefox-window {
     background: #1e1e1e;
     color: #f1f1f1;
-    border-radius: 8px;
+    border-radius: 50px;
     overflow: hidden;
     box-shadow: 0 0 18px rgba(0, 0, 0, 0.5);
     display: flex;
@@ -12,6 +12,7 @@
 .firefox-inner {
     height: 100%;
     display: flex;
+    /* border-radius: 10px; */
     flex-direction: column;
 }
 

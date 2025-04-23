@@ -2,8 +2,9 @@ import React, { useState } from 'react'
 import TerminalIcon from './TerminalIcon'
 import TerminalWindow from './TerminalWindow'
 import FirefoxIcon from './FirefoxIcon'
-import FakeFirefox from './FakeFirefox'
+import BrowserWindow from './FakeFirefox'
 import ResumeIcon from './ResumeIcon'
+import Taskbar from './Taskbar'
 
 const Desktop = () => {
   const [isTerminalOpen, setTerminalOpen] = useState(false)
@@ -14,7 +15,8 @@ const Desktop = () => {
       <TerminalIcon onClick={() => setTerminalOpen(true)} />
       <ResumeIcon />
       <FirefoxIcon onClick={() => setIsFirefoxOpen(true)} />
-      {isFirefoxOpen && <FakeFirefox onClose={() => setIsFirefoxOpen(false)} />}
+      <Taskbar/>
+      {isFirefoxOpen && <BrowserWindow onClose={() => setIsFirefoxOpen(false)} />}
       {isTerminalOpen && <TerminalWindow onClose={() => setTerminalOpen(false)} />}
     </div>
 
