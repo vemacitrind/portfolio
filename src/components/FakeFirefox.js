@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Rnd } from 'react-rnd';
+// import Desktop from './Desktop'
 
 const BrowserWindow = () => {
   const [tabs, setTabs] = useState([
@@ -86,7 +87,7 @@ const GitHubProfile = () => (
         alignItems: "center",
         overflow: "hidden"
       }}>
-        <img src='/assets/about me.png' alt='logo' style={{ height: "70%", objectFit: "contain" }} />
+        <img src='/assets/aboutme.png' alt='logo' style={{ height: "100%", objectFit: "contain" }} />
       </div>
 
       <div>
@@ -157,11 +158,13 @@ const LinkedInProfile = () => (
     <div style={{ backgroundColor: "white", borderBottom: "1px solid #e0e0e0", marginBottom: "16px" }}>
       <div style={{ maxWidth: "800px", margin: "0 auto", padding: "16px" }}>
         <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
-          <div style={{ width: "96px", height: "96px", borderRadius: "50%", backgroundColor: "#e0e0e0", border: "4px solid white" }}></div>
+          <div style={{ width: "96px", height: "96px", borderRadius: "50%", backgroundColor: "#e0e0e0", border: "4px solid white" }}>
+            <img src='/assets/dev.png' alt='logo' style={{ borderRadius:"50%", height: "100%", objectFit: "contain" }}/>
+          </div>
           <div>
-            <h2 style={{ fontSize: "24px", fontWeight: "bold", margin: "0" }}>Developer Name</h2>
-            <p style={{ color: "#666666", margin: "4px 0" }}>Full-Stack Developer | Open Source Contributor | Linux Enthusiast</p>
-            <p style={{ color: "#999999", fontSize: "14px" }}>Greater Seattle Area • 500+ connections</p>
+            <h2 style={{ fontSize: "24px", fontWeight: "bold", margin: "0",color:"black" }}>Vedant Joshi</h2>
+            <p style={{ color: "#666666", margin: "4px 0" }}>CE Student at LJ University | Full-Stack Developer | Linux Enthusiast</p>
+            <p style={{ color: "#999999", fontSize: "14px" }}>Gujarat, India • 500+ connections</p>
           </div>
         </div>
       </div>
@@ -169,41 +172,31 @@ const LinkedInProfile = () => (
 
     <div style={{ maxWidth: "800px", margin: "0 auto" }}>
       <div style={{ backgroundColor: "white", borderRadius: "8px", border: "1px solid #e0e0e0", marginBottom: "16px", padding: "16px" }}>
-        <h3 style={{ fontSize: "18px", fontWeight: "bold", marginBottom: "8px" }}>About</h3>
+        <h3 style={{ fontSize: "18px", fontWeight: "bold", marginBottom: "8px" ,color:"black"}}>About</h3>
         <p style={{ color: "#666666" }}>
-          Passionate developer with 5+ years of experience building web applications and systems. Specializing in
-          React, Node.js, and cloud architecture. Open-source contributor and Linux enthusiast.
+        Computer Engineering student with a strong interest in programming and software development. Passionate about learning new technologies and building practical solutions through hands-on projects.
         </p>
       </div>
 
       <div style={{ backgroundColor: "white", borderRadius: "8px", border: "1px solid #e0e0e0", marginBottom: "16px", padding: "16px" }}>
-        <h3 style={{ fontSize: "18px", fontWeight: "bold", marginBottom: "8px" }}>Experience</h3>
+        <h3 style={{ fontSize: "18px", fontWeight: "bold", marginBottom: "8px",color:"black" }}>Education</h3>
 
-        <div style={{ marginBottom: "16px", paddingBottom: "16px", borderBottom: "1px solid #e0e0e0" }}>
+        <div style={{ marginBottom: "16px", paddingBottom: "16px", borderBottom: "0px solid #e0e0e0" }}>
           <div style={{ display: "flex", gap: "12px" }}>
-            <div style={{ width: "48px", height: "48px", backgroundColor: "#e0e0e0", borderRadius: "4px" }}></div>
-            <div>
-              <h4 style={{ fontWeight: "bold", margin: "0" }}>Senior Developer</h4>
-              <p style={{ color: "#666666", margin: "4px 0" }}>Tech Company Inc.</p>
-              <p style={{ color: "#999999", fontSize: "14px" }}>Jan 2021 - Present • 2 yrs 4 mos</p>
+            <div style={{ width: "48px", height: "48px", backgroundColor: "#e0e0e0", borderRadius: "4px" }}>
+              <img src='/assets/ljuni.png' alt='logo' style={{ height: "100%", objectFit: "contain" }} />
             </div>
-          </div>
-        </div>
-
-        <div>
-          <div style={{ display: "flex", gap: "12px" }}>
-            <div style={{ width: "48px", height: "48px", backgroundColor: "#e0e0e0", borderRadius: "4px" }}></div>
             <div>
-              <h4 style={{ fontWeight: "bold", margin: "0" }}>Full Stack Developer</h4>
-              <p style={{ color: "#666666", margin: "4px 0" }}>Dev Solutions LLC</p>
-              <p style={{ color: "#999999", fontSize: "14px" }}>Mar 2018 - Dec 2020 • 2 yrs 10 mos</p>
+              <h4 style={{ fontWeight: "bold", margin: "0" ,color:"black"}}>LJ University</h4>
+              <p style={{ color: "#666666", margin: "4px 0" }}>2023-2027</p>
+              {/* <p style={{ color: "#999999", fontSize: "14px" }}>Jan 2021 - Present • 2 yrs 4 mos</p> */}
             </div>
           </div>
         </div>
       </div>
 
-      <div style={{ backgroundColor: "white", borderRadius: "8px", border: "1px solid #e0e0e0", marginBottom: "16px", padding: "16px" }}>
-        <h3 style={{ fontSize: "18px", fontWeight: "bold", marginBottom: "8px" }}>Education</h3>
+      {/* <div style={{ backgroundColor: "white", borderRadius: "8px", border: "1px solid #e0e0e0", marginBottom: "16px", padding: "16px" }}>
+        <h3 style={{ fontSize: "18px", fontWeight: "bold", marginBottom: "8px" }}>Ex</h3>
         <div style={{ display: "flex", gap: "12px" }}>
           <div style={{ width: "48px", height: "48px", backgroundColor: "#e0e0e0", borderRadius: "4px" }}></div>
           <div>
@@ -212,17 +205,18 @@ const LinkedInProfile = () => (
             <p style={{ color: "#999999", fontSize: "14px" }}>2014 - 2018</p>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   </div>
 )
   ;
 
 const PortfolioSite = () => (
+  // <Desktop/>
   <div style={{ minHeight: "100%", backgroundColor: "#f5f5f5" }}>
     <div style={{ backgroundColor: "black", color: "white", padding: "24px" }}>
       <div style={{ maxWidth: "800px", margin: "0 auto" }}>
-        <h1 style={{ fontSize: "32px", fontWeight: "bold", marginBottom: "16px" }}>Developer Name</h1>
+        <h1 style={{ fontSize: "32px", fontWeight: "bold", marginBottom: "16px" }}>Joshi Vedant</h1>
         <p style={{ fontSize: "20px" }}>Building elegant solutions to complex problems</p>
       </div>
     </div>
@@ -230,46 +224,90 @@ const PortfolioSite = () => (
     <div style={{ maxWidth: "800px", margin: "0 auto", padding: "24px" }}>
       <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "24px", marginBottom: "32px" }}>
         <div>
-          <h2 style={{ fontSize: "24px", fontWeight: "bold", marginBottom: "16px" }}>About Me</h2>
-          <p style={{ marginBottom: "16px" }}>
+          <h2 style={{ fontSize: "24px", fontWeight: "bold", marginBottom: "16px",color:"black" }}>About Me</h2>
+          <p style={{ marginBottom: "16px",color:"black" }}>
             I'm a full-stack developer with a passion for creating intuitive and performant web applications. With
             expertise in modern JavaScript frameworks, server-side technologies, and Linux systems, I build solutions
             that are both powerful and user-friendly.
           </p>
-          <p>
+          <p style={{ marginBottom: "16px",color:"black" }}>
             When I'm not coding, you can find me contributing to open-source projects, exploring new technologies, or
             tinkering with my Arch Linux setup.
           </p>
         </div>
         <div style={{ backgroundColor: "white", padding: "16px", borderRadius: "8px", boxShadow: "0 2px 4px rgba(0,0,0,0.1)" }}>
-          <h3 style={{ fontSize: "20px", fontWeight: "bold", marginBottom: "12px" }}>Skills</h3>
+          <h3 style={{ fontSize: "20px", fontWeight: "bold", marginBottom: "12px" ,color:"black"}}>Skills</h3>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "8px" }}>
-            <div style={{ backgroundColor: "#f5f5f5", padding: "8px", borderRadius: "4px" }}>JavaScript/TypeScript</div>
-            <div style={{ backgroundColor: "#f5f5f5", padding: "8px", borderRadius: "4px" }}>React/Next.js</div>
-            <div style={{ backgroundColor: "#f5f5f5", padding: "8px", borderRadius: "4px" }}>Node.js</div>
-            <div style={{ backgroundColor: "#f5f5f5", padding: "8px", borderRadius: "4px" }}>Python</div>
-            <div style={{ backgroundColor: "#f5f5f5", padding: "8px", borderRadius: "4px" }}>Rust</div>
-            <div style={{ backgroundColor: "#f5f5f5", padding: "8px", borderRadius: "4px" }}>Linux/DevOps</div>
-            <div style={{ backgroundColor: "#f5f5f5", padding: "8px", borderRadius: "4px" }}>UI/UX Design</div>
-            <div style={{ backgroundColor: "#f5f5f5", padding: "8px", borderRadius: "4px" }}>Cloud Architecture</div>
+            <div style={{ backgroundColor: "#f5f5f5", padding: "8px", borderRadius: "4px",color:"black" }}>JavaScript/TypeScript</div>
+            <div style={{ backgroundColor: "#f5f5f5", padding: "8px", borderRadius: "4px",color:"black" }}>React/Next.js</div>
+            <div style={{ backgroundColor: "#f5f5f5", padding: "8px", borderRadius: "4px",color:"black" }}>Node.js</div>
+            <div style={{ backgroundColor: "#f5f5f5", padding: "8px", borderRadius: "4px",color:"black" }}>Python</div>
+            <div style={{ backgroundColor: "#f5f5f5", padding: "8px", borderRadius: "4px",color:"black" }}>Java</div>
+            <div style={{ backgroundColor: "#f5f5f5", padding: "8px", borderRadius: "4px",color:"black" }}>Linux/DevOps</div>
+            <div style={{ backgroundColor: "#f5f5f5", padding: "8px", borderRadius: "4px",color:"black" }}>UI/UX Design</div>
+            <div style={{ backgroundColor: "#f5f5f5", padding: "8px", borderRadius: "4px",color:"black" }}>Cloud Architecture</div>
           </div>
         </div>
       </div>
 
-      <h2 style={{ fontSize: "24px", fontWeight: "bold", marginBottom: "16px" }}>Featured Projects</h2>
+      <h2 style={{ fontSize: "24px", fontWeight: "bold", marginBottom: "16px",color:"black" }}>Featured Projects</h2>
       <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "24px" }}>
-        {[
-          { title: "Arch Portfolio", desc: "An Arch Linux themed portfolio website built with Next.js" },
-          { title: "E-commerce Platform", desc: "Full-stack application with React and Node.js" },
-          { title: "CLI Task Manager", desc: "Terminal-based productivity tool written in Rust" },
-        ].map((project, i) => (
-          <div key={i} style={{ backgroundColor: "white", padding: "16px", borderRadius: "8px", boxShadow: "0 2px 4px rgba(0,0,0,0.1)" }}>
-            <div style={{ height: "160px", backgroundColor: "#e0e0e0", marginBottom: "12px", borderRadius: "4px" }}></div>
-            <h3 style={{ fontWeight: "bold", marginBottom: "8px" }}>{project.title}</h3>
-            <p style={{ color: "#666666", fontSize: "14px" }}>{project.desc}</p>
-          </div>
-        ))}
+  {[
+    {
+      title: "Arch Portfolio",
+      desc: "An Arch Linux themed portfolio website built with React",
+      src: "/assets/arch-portfolio.png",
+    },
+    {
+      title: "E-commerce Database",
+      desc: "SQL scripts to create and manage an e-commerce database with essential operations.",
+      src: "/assets/class_diagram.png",
+    },
+    {
+      title: "Web Hosting Website",
+      desc: "Fully responsive Web Hosting website built using Bootstrap 5.",
+      src: "/assets/web-hosting-site.png",
+    },
+  ].map((project, i) => (
+    <div
+      key={i}
+      style={{
+        backgroundColor: "white",
+        padding: "16px",
+        borderRadius: "8px",
+        boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
+      }}
+    >
+      <div
+        style={{
+          height: "160px",
+          backgroundColor: "#e0e0e0",
+          marginBottom: "12px",
+          borderRadius: "4px",
+          overflow: "hidden", 
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <img
+          src={project.src}
+          alt="project preview"
+          style={{
+            height: "auto",
+            width: "100%",
+            objectFit: "cover", 
+          }}
+        />
       </div>
+      <h3 style={{ fontWeight: "bold", marginBottom: "8px", color: "black" }}>
+        {project.title}
+      </h3>
+      <p style={{ color: "#666666", fontSize: "14px" }}>{project.desc}</p>
+    </div>
+  ))}
+</div>
+
     </div>
   </div>
 )

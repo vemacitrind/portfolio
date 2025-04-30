@@ -4,16 +4,17 @@ html, body {
   overflow: hidden;
 }
 
-body {
+/* body {
+  
+} */
+
+.desktop {
   margin: 0;
   background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('/public/assets/image.png');
   background-size: cover;
   background-position: center;
   font-family: 'Courier New', monospace;
   color: white;
-}
-
-.desktop {
   width: 100vw;
   height: 100vh;
   padding: 20px;
