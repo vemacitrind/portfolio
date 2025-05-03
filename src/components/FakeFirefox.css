@@ -16,7 +16,6 @@
     flex-direction: column;
 }
 
-/* macOS-style circle buttons */
 .window-buttons {
     display: flex;
     gap: 6px;
@@ -130,7 +129,6 @@
     color: #ccc;
 }
 
-/* Preview area */
 .external-preview {
     text-align: center;
 }

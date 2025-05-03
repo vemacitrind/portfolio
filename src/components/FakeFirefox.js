@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Rnd } from 'react-rnd';
 // import Desktop from './Desktop'
 
-const BrowserWindow = () => {
+const BrowserWindow = ({ onClose }) => {
   const [tabs, setTabs] = useState([
     { id: 'github', title: 'GitHub', url: 'github.com/vemacitrind', content: <GitHubProfile /> },
     { id: 'linkedin', title: 'LinkedIn', url: 'linkedin.com/in/vedant-joshi-og', content: <LinkedInProfile /> },
@@ -32,32 +32,41 @@ const BrowserWindow = () => {
     >
       <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
         <div style={{ background: '#2a2a2a', padding: '10px' }}>
-          <div style={{ display: 'flex', marginBottom: '6px' }}>
-            {tabs.map(tab => (
-              <div
-                key={tab.id}
-                onClick={() => handleTabClick(tab.id)}
-                style={{
-                  backgroundColor: activeTabId === tab.id ? '#1c1b1b' : '#424141',
-                  color: '#fff',
-                  padding: '5px 10px',
-                  marginRight: '6px',
-                  borderTopLeftRadius: '6px',
-                  borderTopRightRadius: '6px',
-                  cursor: 'pointer',
-                  display: 'flex',
-                  alignItems: 'center',
-                }}
-              >
-                <span>{tab.title}</span>
-                <button
-                  onClick={(e) => closeTab(tab.id, e)}
-                  style={{ marginLeft: '8px', background: 'transparent', color: 'white', border: 'none', cursor: 'pointer' }}
+          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}>
+            <div style={{ display: 'flex' }}>
+              {tabs.map(tab => (
+                <div
+                  key={tab.id}
+                  onClick={() => handleTabClick(tab.id)}
+                  style={{
+                    backgroundColor: activeTabId === tab.id ? '#1c1b1b' : '#424141',
+                    color: '#fff',
+                    padding: '5px 10px',
+                    marginRight: '6px',
+                    borderTopLeftRadius: '6px',
+                    borderTopRightRadius: '6px',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                  }}
                 >
-                  x
-                </button>
-              </div>
-            ))}
+                  <span>{tab.title}</span>
+                  <button
+                    onClick={(e) => closeTab(tab.id, e)}
+                    style={{ marginLeft: '8px', background: 'transparent', color: 'white', border: 'none', cursor: 'pointer' }}
+                  >
+                    x
+                  </button>
+                </div>
+              ))}
+            </div>
+            <button
+              onClick={onClose}
+              style={{ background: '#ff5f56', border: 'none', color: 'white', borderRadius: '50%', width: '20px', height: '20px', cursor: 'pointer' }}
+              title="Close Window"
+            >
+              ×
+            </button>
           </div>
           <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
             <button>{'<'}</button>
@@ -73,6 +82,7 @@ const BrowserWindow = () => {
     </Rnd>
   );
 };
+
 
 const GitHubProfile = () => (
   <div style={{ padding: "16px", backgroundColor: "#0d1117", color: "#c9d1d9", minHeight: "100vh" }}>
@@ -257,16 +267,19 @@ const PortfolioSite = () => (
       title: "Arch Portfolio",
       desc: "An Arch Linux themed portfolio website built with React",
       src: "/assets/arch-portfolio.png",
+      link:"https://github.com/vemacitrind/portfolio"
     },
     {
       title: "E-commerce Database",
       desc: "SQL scripts to create and manage an e-commerce database with essential operations.",
       src: "/assets/class_diagram.png",
+      link:"https://github.com/vemacitrind/ecommerce_db"
     },
     {
       title: "Web Hosting Website",
       desc: "Fully responsive Web Hosting website built using Bootstrap 5.",
       src: "/assets/web-hosting-site.png",
+      link:"https://github.com/vemacitrind/web-hosting-site"
     },
   ].map((project, i) => (
     <div
@@ -301,7 +314,7 @@ const PortfolioSite = () => (
         />
       </div>
       <h3 style={{ fontWeight: "bold", marginBottom: "8px", color: "black" }}>
-        {project.title}
+        {project.title}<a href={project.link} target='_blank' rel="noreferrer"><img src='/assets/link.png' alt='project link' style={{marginLeft:"1rem",width:"1.2rem"}}/></a>
       </h3>
       <p style={{ color: "#666666", fontSize: "14px" }}>{project.desc}</p>
     </div>
