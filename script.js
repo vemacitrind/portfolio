@@ -374,18 +374,16 @@ function setupDropdowns() {
 function createFloatingDots() {
     const background = document.querySelector('.floating-dots');
 
-    // Clear existing dots
     background.innerHTML = '';
 
-    // Create multiple sets of dots with different sizes and speeds
-    for (let i = 0; i < 30; i++) {
+    for (let i = 0; i < 50; i++) {
         const dot = document.createElement('div');
         dot.className = 'floating-dot';
 
-        const size = Math.random() * 6 + 2; // 2-8px
+        const size = Math.random() * 6 + 2;
         const left = Math.random() * 100;
-        const animationDuration = Math.random() * 20 + 15; // 15-35s
-        const delay = Math.random() * 10; // 0-10s delay
+        const animationDuration = Math.random() * 10 + 5; // Faster movement
+        const delay = Math.random() * 10;
 
         dot.style.width = size + 'px';
         dot.style.height = size + 'px';
@@ -393,11 +391,10 @@ function createFloatingDots() {
         dot.style.animationDuration = animationDuration + 's';
         dot.style.animationDelay = delay + 's';
 
-        // Set opacity based on theme
         if (currentTheme === 'dark') {
-            dot.style.background = 'rgba(255, 255, 255, 0.1)';
+            dot.style.background = 'rgba(255, 255, 255, 1)';
         } else {
-            dot.style.background = 'rgba(0, 0, 0, 0.1)';
+            dot.style.background = 'rgba(0, 0, 0, 1)';
         }
 
         background.appendChild(dot);
