@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="logo.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Joshi Vedant</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Animated Background with Dots -->
+    <div class="background-animation">
+        <div class="floating-dots"></div>
+    </div>
+
+    <!-- Main Container -->
+    <main class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <a href="index.html" class="back-btn">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    Back to Home
+                </a>
+            </div>
+
+            <div class="header-right">
+                <button class="theme-toggle">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+                    </svg>
+                </button>
+                <div class="live-status">
+                    <div class="live-dot"></div>
+                    <span>LIVE</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Enhanced Search and Filter Section -->
+        <section class="projects-search-section">
+
+            <div class="projects-filter">
+                <input type="text" placeholder="Search projects..." class="filter-input">
+                <div class="filter-buttons">
+                    <div class="dropdown-container">
+                        <button class="filter-btn dropdown-btn" id="techDropdown">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <path d="M8 12h8"></path>
+                                <path d="M12 8v8"></path>
+                            </svg>
+                            Tech
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" class="dropdown-arrow">
+                                <path d="M6 9l6 6 6-6"></path>
+                            </svg>
+                        </button>
+                        <div class="dropdown-menu" id="techDropdownMenu">
+                            <div class="dropdown-item" data-tech="Django">Django</div>
+                            <div class="dropdown-item" data-tech="React.js">React.js</div>
+                            <div class="dropdown-item" data-tech="Java">Java</div>
+                            <div class="dropdown-item" data-tech="Streamlit">Streamlit</div>
+                            <div class="dropdown-item" data-tech="HTML">HTML</div>
+                            <div class="dropdown-item" data-tech="JavaScript">JavaScript</div>
+                            <div class="dropdown-item" data-tech="SQLite">SQLite</div>
+                            <div class="dropdown-item" data-tech="MySQL">MySQL</div>
+                            <div class="dropdown-item" data-tech="PostgreSQL">PostgreSQL</div>
+                            <div class="dropdown-item" data-tech="Firebase">Firebase</div>
+                            <div class="dropdown-item" data-tech="All">All Technologies</div>
+                        </div>
+                    </div>
+                    <div class="dropdown-container">
+                        <button class="filter-btn dropdown-btn" id="yearDropdown">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <path d="M8 12h8"></path>
+                                <path d="M12 8v8"></path>
+                            </svg>
+                            Year
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" class="dropdown-arrow">
+                                <path d="M6 9l6 6 6-6"></path>
+                            </svg>
+                        </button>
+                        <div class="dropdown-menu" id="yearDropdownMenu">
+                            <div class="dropdown-item" data-year="2025">2025</div>
+                            <div class="dropdown-item" data-year="2024">2024</div>
+                            <div class="dropdown-item" data-year="2023">2023</div>
+                            <div class="dropdown-item" data-year="All">All Years</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Grid -->
+        <section class="projects-section">
+            <div class="projects-grid" id="projectsGrid">
+                <!-- Projects will be populated by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-bottom">
+                <p>&copy; 2024 Joshi Vedant. All rights reserved.</p>
+                <a href="index.html" class="footer-link">Back to Home</a>
+            </div>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+        // Enhanced search functionality for projects page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Wait for the main script to initialize first
+            setTimeout(function() {
+                const filterInput = document.querySelector('.filter-input');
+                const resultsCount = document.getElementById('resultsCount');
+
+                // Update results counter
+                function updateResultsCounter() {
+                    if (resultsCount && typeof filteredProjects !== 'undefined') {
+                        resultsCount.textContent = filteredProjects.length;
+                    }
+                }
+
+                // Enhanced search function
+                function enhancedSearch(query) {
+                    if (typeof projects === 'undefined' || typeof filteredProjects === 'undefined') {
+                        return;
+                    }
+                    
+                    const searchTerm = query.toLowerCase().trim();
+                    
+                    if (!searchTerm) {
+                        filteredProjects = [...projects];
+                    } else {
+                        filteredProjects = projects.filter(project =>
+                            project.title.toLowerCase().includes(searchTerm) ||
+                            project.description.toLowerCase().includes(searchTerm) ||
+                            project.tech.some(tech => tech.toLowerCase().includes(searchTerm)) ||
+                            (project.tags && project.tags.some(tag => tag.toLowerCase().includes(searchTerm)))
+                        );
+                    }
+                    
+                    if (typeof renderProjects === 'function') {
+                        renderProjects();
+                    }
+                    updateResultsCounter();
+                }
+
+                // Search input event listener
+                if (filterInput) {
+                    filterInput.addEventListener('input', function(e) {
+                        enhancedSearch(e.target.value);
+                    });
+                }
+
+                // Override the original renderProjects function to update counter
+                if (typeof window.renderProjects === 'function') {
+                    const originalRenderProjects = window.renderProjects;
+                    window.renderProjects = function() {
+                        originalRenderProjects();
+                        updateResultsCounter();
+                    };
+                }
+
+                // Initial render
+                if (typeof projects !== 'undefined') {
+                    filteredProjects = [...projects];
+                    if (typeof renderProjects === 'function') {
+                        renderProjects();
+                    }
+                    updateResultsCounter();
+                }
+            }, 100);
+        });
+    </script>
+</body>
+
+</html>

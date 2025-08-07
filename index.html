@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="img/logo/logo.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joshi Vedant - Full Stack Dev</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Animated Background with Dots -->
+    <div class="background-animation">
+        <div class="floating-dots"></div>
+    </div>
+
+    <!-- Main Container -->
+    <main class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <button class="refresh-btn">
+                    <img src="img/logo/logo.png" alt="logo" width="30" class="logo">
+                </button>
+            </div>
+
+            <div class="header-right">
+                <button class="theme-toggle">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+                    </svg>
+                </button>
+                <div class="live-status">
+                    <div class="live-dot"></div>
+                    <span>LIVE</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Profile Section -->
+        <section class="profile-section">
+            <div class="profile-image">
+                <!-- <div class="profile-ring"></div> -->
+                <img src="img/logo/image.png"
+                    alt="Profile" />
+            </div>
+            <div class="profile-info">
+                <h1>Hi, I am <span class="name-highlight">JOSHI VEDANT</span></h1>
+                <p class="profile-description">A full stack developer, specializing in building scalable web
+                    applications with a focus on seamless user experiences, efficient backend architecture, and a strong
+                    attention to detail.</p>
+                
+                    <div class="social-links">
+                        <a href="https://linkedin.com/in/vedant-joshi-og" target="_blank" rel="noopener noreferrer"
+                            class="social-link">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://github.com/vemacitrind" target="_blank" rel="noopener noreferrer"
+                            class="social-link">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.hackerrank.com/profile/jvedant_711" target="_blank" rel="noopener noreferrer"
+                            class="social-link">
+                            <i class="fab fa-hackerrank"></i>
+                        </a>
+                    </div>
+                    <div class="location">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    Ahemdabad ,Gujarat
+                </div>
+                <!-- Small Resume Button -->
+                <button class="resume-btn-small">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    Resume
+                </button>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section class="education-section">
+            <h2 class="section-title">EDUCATION</h2>
+            <div class="job-card">
+                <div class="job-info">
+                    <h3>Computer Engineering</h3>
+                    <p class="job-period">2023 - 2027</p>
+                    <p class="job-description">Specialized in Software Engineering and Web Technologies with focus on
+                        modern development practices, algorithms, and system design.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Data Structures</span>
+                        <span class="tech-tag">Algorithms</span>
+                        <span class="tech-tag">Machine Learning</span>
+                        <span class="tech-tag">Web Development</span>
+                    </div>
+                </div>
+                <div class="company-info">
+                    <a href="http://ljku.edu.in/program/engineering-b-e-m-e-10" target="_blank"
+                        rel="noopener noreferrer" class="company-link">
+                        <div class="company-logo">
+                            <div class="logo-placeholder">LJ</div>
+                        </div>
+                        <span class="company-name">LJ University</span>
+                    </a>
+                    <p class="work-type">On Campus</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="projects-section">
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-filter">
+                <input type="text" placeholder="Search projects..." class="filter-input">
+                <div class="filter-buttons">
+                    <div class="dropdown-container">
+                        <button class="filter-btn dropdown-btn" id="techDropdown">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <path d="M8 12h8"></path>
+                                <path d="M12 8v8"></path>
+                            </svg>
+                            Tech
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" class="dropdown-arrow">
+                                <path d="M6 9l6 6 6-6"></path>
+                            </svg>
+                        </button>
+                        <div class="dropdown-menu" id="techDropdownMenu">
+                            <div class="dropdown-item" data-tech="Django">Django</div>
+                            <div class="dropdown-item" data-tech="React.js">React.js</div>
+                            <div class="dropdown-item" data-tech="Java">Java</div>
+                            <div class="dropdown-item" data-tech="Streamlit">Streamlit</div>
+                            <div class="dropdown-item" data-tech="HTML">HTML</div>
+                            <div class="dropdown-item" data-tech="JavaScript">JavaScript</div>
+                            <div class="dropdown-item" data-tech="SQLite">SQLite</div>
+                            <div class="dropdown-item" data-tech="MySQL">MySQL</div>
+                            <div class="dropdown-item" data-tech="PostgreSQL">PostgreSQL</div>
+                            <div class="dropdown-item" data-tech="Firebase">Firebase</div>
+                            <div class="dropdown-item" data-tech="All">All Technologies</div>
+                        </div>
+                    </div>
+                    <div class="dropdown-container">
+                        <button class="filter-btn dropdown-btn" id="yearDropdown">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <path d="M8 12h8"></path>
+                                <path d="M12 8v8"></path>
+                            </svg>
+                            Year
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" class="dropdown-arrow">
+                                <path d="M6 9l6 6 6-6"></path>
+                            </svg>
+                        </button>
+                        <div class="dropdown-menu" id="yearDropdownMenu">
+                            <div class="dropdown-item" data-year="2025">2025</div>
+                            <div class="dropdown-item" data-year="2024">2024</div>
+                            <div class="dropdown-item" data-year="2023">2023</div>
+                            <div class="dropdown-item" data-year="All">All Years</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="projects-grid" id="projectsGrid">
+                <!-- Projects will be populated by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Technologies Section -->
+        <section class="technologies-section">
+            <h2 class="section-title">Technologies</h2>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <i class="fab fa-python"></i>
+                    </div>
+                    <span>Python</span>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <i class="fab fa-react"></i>
+                    </div>
+                    <span>React js</span>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <i class="fab fa-java"></i>
+                    </div>
+                    <span>Java</span>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <span>MySQL</span>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <i class="fab fa-html5"></i>
+                    </div>
+                    <span>HTML</span>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <i class="fab fa-css3-alt"></i>
+                    </div>
+                    <span>CSS</span>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <i class="fab fa-js-square"></i>
+                    </div>
+                    <span>JavaScript</span>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <span>Firebase</span>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <i class="fab fa-bootstrap"></i>
+                    </div>
+                    <span>Bootstrap</span>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <span>Vite</span>
+                </div>
+               
+            </div>
+            
+            <!-- View More Link -->
+            <div class="tech-view-more">
+                <a href="resume.pdf" target="_blank" class="view-more-link">
+                    <span>View more at</span>
+                    <i class="fas fa-external-link-alt"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <!-- Contact Form -->
+            <div class="contact-section">
+                <h3 class="contact-title">Contact Me</h3>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-paper-plane"></i>
+                        Send Message
+                    </button>
+                </form>
+            </div>
+
+            <div class="footer-divider"></div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Joshi Vedant. All rights reserved.</p>
+            </div>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
