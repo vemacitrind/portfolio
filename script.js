@@ -73,7 +73,7 @@ const projects = [
         image: "img/projects/arch-portfolio.png",
         tags: ["HTML", "CSS", "JavaScript", "2024"],
         githubLink: "https://github.com/vemacitrind/arch-portfolio",
-        liveLink: "https://vemacitrind.github.io/arch-portfolio/",
+        liveLink: "https://joshivedant-portfolio.vercel.app/",
         year: 2024,
         tech: ["React js"]
     },
@@ -89,7 +89,7 @@ const projects = [
         tech: ["Python", "Instaloader"]
     }, {
         id: 9,
-        title: "movie-ticket-booking-system-python",
+        title: "Movie ticket booking system",
         description: "A CLI-based movie ticket booking system using Python, featuring MySQL integration, colorful terminal UI, and secure password inputs.",
         image: "img/projects/movie-ticket-booking-system-python.png",
         tags: ["Python", "MySQL", "Rich", "2024"],
