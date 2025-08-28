@@ -1183,7 +1183,7 @@ html[data-theme='light'] .logo {
 
 @media (max-width: 480px) {
     .header {
-        flex-direction: column;
+        flex-direction: row;
         gap: 1rem;
     }
 
@@ -1191,10 +1191,13 @@ html[data-theme='light'] .logo {
         gap: 0.05rem;
     }
     
-    .header-left,
     .header-right {
         width: 100%;
-        justify-content: space-between;
+        justify-content: flex-end;
+    }
+    .header-left{
+        /* width: 100%; */
+        justify-content: flex-start;
     }
     
     .profile-info h1 {

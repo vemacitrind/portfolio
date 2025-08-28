@@ -53,29 +53,29 @@ const projects = [
         githubLink: "https://github.com/vemacitrind/web-hosting-site",
         liveLink: "https://vemacitrind.github.io/web-hosting-site/", 
         year: 2024,
-        tech: ["Java", "PostgreSQL"]
+        tech: ["HTML", "CSS", "JavaScript", "Bootstrap5"]
     },
     {
         id: 6,
         title: "Bus Booking",
         description: "Bus ticket booking system with seat selection, payment processing, and booking management",
         image: "img/projects/bus.png",
-        tags: ["Java", "PostgreSQL", "2023"],
+        tags: ["Java", "MySQL", "2023"],
         githubLink: "https://github.com/vemacitrind/BRTS_PROJECT_JAVA",
         liveLink: null, // No live link for this project
         year: 2023,
-        tech: ["Java", "PostgreSQL"]
+        tech: ["Java", "MySQL"]
     },
     {
         id: 7,
         title: "Arch-portfolio",
         description: "A sleek and minimal portfolio template tailored for developers and designers to showcase their work effectively.",
         image: "img/projects/arch-portfolio.png",
-        tags: ["HTML", "CSS", "JavaScript", "2024"],
+        tags: ["React.js", "2024"],
         githubLink: "https://github.com/vemacitrind/arch-portfolio",
         liveLink: "https://joshivedant-portfolio.vercel.app/",
         year: 2024,
-        tech: ["React js"]
+        tech: ["React.js"]
     },
     {
         id: 8,
@@ -101,13 +101,13 @@ const projects = [
     {
         id: 10,
         title: "ecommerce_db",
-        description: "A fully structured MySQL database schema for a modern e-commerce platform with tables for products, users, orders, and payments.",
+        description: "A fully structured PostgreSQL database schema for a modern e-commerce platform with tables for products, users, orders, and payments.",
         image: "img/projects/ecommerce_db.png",
-        tags: ["MySQL", "Database Design", "2023"],
+        tags: ["PostgreSQL", "Database Design", "2023"],
         githubLink: "https://github.com/vemacitrind/ecommerce_db",
         liveLink: null,
         year: 2023,
-        tech: ["MySQL"]
+        tech: ["PostgreSQL"]
     }
 
 ];
@@ -201,7 +201,6 @@ document.addEventListener('DOMContentLoaded', function () {
     setupContactForm();
 });
 
-// Theme management
 function initializeTheme() {
     document.documentElement.setAttribute('data-theme', currentTheme);
     updateThemeIcon();
