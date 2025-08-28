@@ -4,10 +4,10 @@ const projects = [
         id: 1,
         title: "MediLink",
         description: "Medical management system connecting patients and healthcare providers with appointment scheduling and medical records",
-        image: "🏥",
+        image: "img/projects/medilink.png",
         tags: ["Django", "React.js", "SQLite", "2025"],
         githubLink: "https://github.com/vemacitrind/medilink",
-        liveLink: "https://medilink-demo.herokuapp.com",
+        liveLink: null,
         year: 2025,
         tech: ["Django", "React.js", "SQLite"]
     },
@@ -18,7 +18,7 @@ const projects = [
         image: "img/projects/roadmap.png",
         tags: ["Django", "React.js", "Vite", "TailwindCSS", "Firebase", "2025"],
         githubLink: "https://github.com/vemacitrind/roadmap",
-        liveLink: "https://roadmap-platform.netlify.app",
+        liveLink: null,
         year: 2025,
         tech: ["Django", "React.js", "Vite", "TailwindCSS", "Firebase"]
     },
@@ -112,20 +112,88 @@ const projects = [
 
 ];
 
+// Certificates data
+const certificates = [
+    {
+        id: 1,
+        title: "Python for Everybody Specialization",
+        description: "",
+        image: "img/certificates/python.png",
+        provider: "Coursera",
+        issuer: "University of Michigan",
+        year: 2024,
+        skills: ["Python", "Data Structures", "Web Scraping", "SQL", "Data Visualization"],
+        certificateLink: "img/certificate/python.pdf",
+        credentialId: "XXXXXXXX"
+    },
+    {
+        id: 2,
+        title: "Machine Learning Specialization",
+        description: "",
+        image: "img/certificates/ml.png",
+        provider: "Coursera",
+        issuer: "Stanford University",
+        year: 2024,
+        skills: ["Machine Learning", "Python", "TensorFlow", "Neural Networks", "Deep Learning"],
+        certificateLink: "img/certificate/Coursera-ML.pdf",
+        credentialId: "XXXXXXXX"
+    },
+    {
+        id: 3,
+        title: "Java Programming Specialization",
+        description: "",
+        image: "img/certificates/java.png",
+        provider: "Coursera",
+        issuer: "Duke University",
+        year: 2023,
+        skills: ["Java", "Object-Oriented Programming", "Data Structures", "Algorithms"],
+        certificateLink: "img/certificate/Coursera-java.pdf",
+        credentialId: "XXXXXXXX"
+    },
+    {
+        id: 4,
+        title: "Data Structures and Algorithms Specialization",
+        description: "",
+        image: "img/certificates/dsa.png",
+        provider: "Coursera",
+        issuer: "University of California San Diego",
+        year: 2023,
+        skills: ["Data Structures", "Algorithms", "Problem Solving", "Python", "Java"],
+        certificateLink: "img/certificate/Coursera-dsa.pdf",
+        credentialId: "XXXXXXXX"
+    },
+    {
+        id: 5,
+        title: "Ethical Hacking Specialization",
+        description: "",
+        image: "img/certificates/ethical-hacking.png",
+        provider: "Coursera",
+        issuer: "University of Colorado",
+        year: 2023,
+        skills: ["Cybersecurity", "Ethical Hacking", "Penetration Testing", "Network Security"],
+        certificateLink: "img/certificate/Coursera-ethical-hacking.pdf",
+        credentialId: "XXXXXXXX"
+    }
+];
+
 // DOM elements
 const projectsGrid = document.getElementById('projectsGrid');
+const certificatesGrid = document.getElementById('certificatesGrid');
+const certificateGrid = document.getElementById('certificateGrid');
 const filterInput = document.querySelector('.filter-input');
 const themeToggle = document.querySelector('.theme-toggle');
 const refreshBtn = document.querySelector('.refresh-btn');
 
 // State
 let filteredProjects = [...projects];
+let filteredCertificates = [...certificates];
 let currentTheme = localStorage.getItem('theme') || 'light';
 
 // Initialize
 document.addEventListener('DOMContentLoaded', function () {
     initializeTheme();
     renderProjects();
+    renderCertificates();
     setupEventListeners();
     createFloatingDots();
     setupDropdowns();
@@ -225,6 +293,84 @@ function createProjectCard(project) {
             <p class="project-description">${project.description}</p>
             <div class="project-tags">
                 ${project.tags.map(tag => `<span class="project-tag">${tag}</span>`).join('')}
+            </div>
+        </div>
+    `;
+
+    // Add hover animation
+    card.addEventListener('mouseenter', function () {
+        this.style.transform = 'translateY(-4px)';
+    });
+
+    card.addEventListener('mouseleave', function () {
+        this.style.transform = 'translateY(0)';
+    });
+
+    return card;
+}
+
+// Certificate rendering
+function renderCertificates() {
+    if (!certificatesGrid && !certificateGrid) return;
+    
+    const targetGrid = certificatesGrid || certificateGrid;
+    targetGrid.innerHTML = '';
+
+    if (filteredCertificates.length === 0) {
+        targetGrid.innerHTML = `
+            <div style="grid-column: 1 / -1; text-align: center; padding: 3rem; color: var(--text-muted);">
+                <p>No certificates found matching your criteria.</p>
+            </div>
+        `;
+        return;
+    }
+
+    // Check if we're on the index page (limit to 4 certificates)
+    const isIndexPage = window.location.pathname.includes('index.html') || window.location.pathname === '/' || window.location.pathname === '';
+    const certificatesToShow = isIndexPage ? filteredCertificates.slice(0, 4) : filteredCertificates.sort((a,b)=>b.year-a.year);
+
+    certificatesToShow.forEach(certificate => {
+        const certificateCard = createCertificateCard(certificate);
+        targetGrid.appendChild(certificateCard);
+    });
+
+    // Add "View All Certificates" button on index page if there are more than 4 certificates
+    if (isIndexPage && filteredCertificates.length > 4) {
+        const viewAllButton = document.createElement('div');
+        viewAllButton.className = 'view-all-projects';
+        viewAllButton.innerHTML = `
+            <a href="certificates.html" class="view-all-btn">
+                <span>View All Certificates</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14"></path>
+                    <path d="M12 5l7 7-7 7"></path>
+                </svg>
+            </a>
+        `;
+        targetGrid.appendChild(viewAllButton);
+    }
+}
+
+function createCertificateCard(certificate) {
+    const card = document.createElement('div');
+    card.className = 'project-card';
+
+    // Create tags array with provider and skills
+    const allTags = [certificate.provider, ...certificate.skills, certificate.year.toString()];
+
+    card.innerHTML = `
+        <div class="project-image">
+            <img src="${certificate.image}" alt="${certificate.title}" class="project-img"/>
+        </div>
+        <div class="project-content">
+            <div class="project-header">
+                <h3 class="project-title">${certificate.title}</h3>
+                <a href="${certificate.certificateLink}" target="_blank" rel="noopener noreferrer" class="github-link" title="View Certificate">
+                    <i class="fas fa-certificate"></i>
+                </a>
+            </div>
+            <div class="project-tags">
+                ${allTags.map(tag => `<span class="project-tag">${tag}</span>`).join('')}
             </div>
         </div>
     `;
@@ -368,6 +514,25 @@ function setupDropdowns() {
         techDropdown.classList.remove('active');
         yearDropdown.classList.remove('active');
     });
+}
+
+// Certificate filtering
+function filterCertificates(query) {
+    const searchTerm = query.toLowerCase().trim();
+
+    if (!searchTerm) {
+        filteredCertificates = [...certificates];
+    } else {
+        filteredCertificates = certificates.filter(certificate =>
+            certificate.title.toLowerCase().includes(searchTerm) ||
+            certificate.description.toLowerCase().includes(searchTerm) ||
+            certificate.provider.toLowerCase().includes(searchTerm) ||
+            certificate.issuer.toLowerCase().includes(searchTerm) ||
+            certificate.skills.some(skill => skill.toLowerCase().includes(searchTerm))
+        );
+    }
+
+    renderCertificates();
 }
 
 // Enhanced floating dots animation
