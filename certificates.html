@@ -60,9 +60,8 @@
                             </svg>
                         </button>
                         <div class="dropdown-menu" id="yearDropdownMenu">
+                            <div class="dropdown-item" data-year="2025">2025</div>
                             <div class="dropdown-item" data-year="2024">2024</div>
-                            <div class="dropdown-item" data-year="2023">2023</div>
-                            <div class="dropdown-item" data-year="2022">2022</div>
                             <div class="dropdown-item" data-year="All">All Years</div>
                         </div>
                     </div>
@@ -87,6 +86,7 @@
     </main>
 
     <script src="script.js"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
     <script>
         // Enhanced search functionality for certificates page
         document.addEventListener('DOMContentLoaded', function() {
@@ -116,7 +116,7 @@
                         filteredCertificates = certificates.filter(certificate =>
                             certificate.title.toLowerCase().includes(searchTerm) ||
                             certificate.provider.toLowerCase().includes(searchTerm) ||
-                            (certificate.skills && certificate.skills.some(skill => skill.toLowerCase().includes(searchTerm)))
+                            certificate.skill.toLowerCase().includes(searchTerm)
                         );
                     }
                     

@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Joshi Vedant - Full Stack Dev</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js" defer></script>
+    <script src="script.js" defer></script>
 </head>
 
 <body>
@@ -56,15 +57,23 @@
                     <div class="social-links">
                         <a href="https://linkedin.com/in/vedant-joshi-og" target="_blank" rel="noopener noreferrer"
                             class="social-link">
-                            <i class="fab fa-linkedin"></i>
+                            <iconify-icon icon="mdi:linkedin" width="24"></iconify-icon>
                         </a>
                         <a href="https://github.com/vemacitrind" target="_blank" rel="noopener noreferrer"
                             class="social-link">
-                            <i class="fab fa-github"></i>
+                            <iconify-icon icon="mdi:github" width="24"></iconify-icon>
                         </a>
-                        <a href="https://www.hackerrank.com/profile/jvedant_711" target="_blank" rel="noopener noreferrer"
+                        <a href="https://www.hackerrank.com/profile/vemacitrind" target="_blank" rel="noopener noreferrer"
                             class="social-link">
-                            <i class="fab fa-hackerrank"></i>
+                            <iconify-icon icon="cib:hackerrank" width="24"></iconify-icon>
+                        </a>
+                        <a href="https://x.com/vemacitrind" target="_blank" rel="noopener noreferrer"
+                            class="social-link">
+                            <iconify-icon icon="ri:twitter-x-fill" width="24"></iconify-icon>
+                        </a>
+                        <a href="https://app.hackthebox.com/profile/2226776" target="_blank" rel="noopener noreferrer"
+                            class="social-link">
+                            <iconify-icon icon="simple-icons:hackthebox" width="24"></iconify-icon>
                         </a>
                     </div>
                     <div class="location">
@@ -173,12 +182,12 @@
             </div>
         </section>
 
-            <!-- <section class="projects-section">
+            <section class="projects-section">
                 <h2 class="section-title">Certificates</h2>
             
                 <div class="projects-grid" id="certificateGrid">
                 </div>
-            </section> -->
+            </section>
 
         <!-- Technologies Section -->
         <section class="technologies-section">
@@ -186,61 +195,61 @@
             <div class="tech-grid">
                 <div class="tech-item">
                     <div class="tech-icon">
-                        <i class="fab fa-python"></i>
+                        <iconify-icon icon="mdi:language-python" width="40"></iconify-icon>
                     </div>
                     <span>Python</span>
                 </div>
                 <div class="tech-item">
                     <div class="tech-icon">
-                        <i class="fab fa-react"></i>
+                        <iconify-icon icon="mdi:react" width="40"></iconify-icon>
                     </div>
                     <span>React js</span>
                 </div>
                 <div class="tech-item">
                     <div class="tech-icon">
-                        <i class="fab fa-java"></i>
+                        <iconify-icon icon="mdi:language-java" width="40"></iconify-icon>
                     </div>
                     <span>Java</span>
                 </div>
                 <div class="tech-item">
                     <div class="tech-icon">
-                        <i class="fas fa-database"></i>
+                        <iconify-icon icon="mdi:database" width="40"></iconify-icon>
                     </div>
                     <span>MySQL</span>
                 </div>
                 <div class="tech-item">
                     <div class="tech-icon">
-                        <i class="fab fa-html5"></i>
+                        <iconify-icon icon="mdi:language-html5" width="40"></iconify-icon>
                     </div>
                     <span>HTML</span>
                 </div>
                 <div class="tech-item">
                     <div class="tech-icon">
-                        <i class="fab fa-css3-alt"></i>
+                        <iconify-icon icon="mdi:language-css3" width="40"></iconify-icon>
                     </div>
                     <span>CSS</span>
                 </div>
                 <div class="tech-item">
                     <div class="tech-icon">
-                        <i class="fab fa-js-square"></i>
+                        <iconify-icon icon="mdi:language-javascript" width="40"></iconify-icon>
                     </div>
                     <span>JavaScript</span>
                 </div>
                 <div class="tech-item">
                     <div class="tech-icon">
-                        <i class="fas fa-fire"></i>
+                        <iconify-icon icon="mdi:firebase" width="40"></iconify-icon>
                     </div>
                     <span>Firebase</span>
                 </div>
                 <div class="tech-item">
                     <div class="tech-icon">
-                        <i class="fab fa-bootstrap"></i>
+                        <iconify-icon icon="ri:bootstrap-fill" width="40"></iconify-icon>
                     </div>
                     <span>Bootstrap</span>
                 </div>
                 <div class="tech-item">
                     <div class="tech-icon">
-                        <i class="fas fa-bolt"></i>
+                        <iconify-icon icon="simple-icons:vite" width="40"></iconify-icon>
                     </div>
                     <span>Vite</span>
                 </div>
@@ -258,33 +267,41 @@
 
         <!-- Footer -->
         <footer class="footer">
+            <!-- Contact Info -->
+            
+
             <!-- Contact Form -->
             <div class="contact-section">
                 <h3 class="contact-title">Contact Me</h3>
-                <form class="contact-form" id="contactForm">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
+                <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <iconify-icon icon="mdi:email" width="24" style="color: var(--bg-primary);"></iconify-icon>
                     </div>
-                    <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <input type="text" id="subject" name="subject" required>
+                    <div class="contact-details">
+                        <h4>Email</h4>
+                        <p>jvedant.711@gmail.com</p>
                     </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="4" required></textarea>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <iconify-icon icon="mdi:phone" width="24" style="color: var(--bg-primary);"></iconify-icon>
                     </div>
-                    <button type="submit" class="submit-btn">
-                        <i class="fas fa-paper-plane"></i>
-                        Send Message
-                    </button>
-                </form>
+                    <div class="contact-details">
+                        <h4>Phone</h4>
+                        <p>+91 7043792153</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <iconify-icon icon="mdi:linkedin" width="24" style="color: var(--bg-primary);"></iconify-icon>
+                    </div>
+                    <div class="contact-details">
+                        <h4>LinkedIn</h4>
+                        <p>vedant-joshi-og</p>
+                    </div>
+                </div>
+            </div>
             </div>
 
             <div class="footer-divider"></div>
@@ -295,7 +312,6 @@
         </footer>
     </main>
 
-    <script src="script.js"></script>
 </body>
 
 </html>

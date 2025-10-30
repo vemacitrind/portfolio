@@ -1,6 +1,17 @@
 // Project data
 const projects = [
     {
+        id: 11,
+        title: "Encryption Tool",
+        description: "CLI-based encryption/decryption tool built on top of the cryptography.fernet module. It is designed for personal or application-level encryption — not for full-disk or system-wide use.",
+        image: "img/projects/duckling.png",
+        tags: ["Python", "Cryptography", "2025"],
+        githubLink: "https://github.com/vemacitrind/ugly-duckling",
+        liveLink: null,
+        year: 2025,
+        tech: ["Python"]
+    },
+    {
         id: 1,
         title: "MediLink",
         description: "Medical management system connecting patients and healthcare providers with appointment scheduling and medical records",
@@ -116,63 +127,52 @@ const projects = [
 const certificates = [
     {
         id: 1,
-        title: "Python for Everybody Specialization",
-        description: "",
-        image: "img/certificates/python.png",
-        provider: "Coursera",
-        issuer: "University of Michigan",
-        year: 2024,
-        skills: ["Python", "Data Structures", "Web Scraping", "SQL", "Data Visualization"],
-        certificateLink: "img/certificate/python.pdf",
-        credentialId: "XXXXXXXX"
+        title: "Data Analysis for Machine Learning",
+        provider: "IBM • Coursera",
+        year: 2025,
+        skill: "Python",
+        certificateLink: "https://coursera.org/share/608ef3585a823ce6e74d7cbd4f95daaf"
     },
     {
         id: 2,
-        title: "Machine Learning Specialization",
-        description: "",
-        image: "img/certificates/ml.png",
-        provider: "Coursera",
-        issuer: "Stanford University",
-        year: 2024,
-        skills: ["Machine Learning", "Python", "TensorFlow", "Neural Networks", "Deep Learning"],
-        certificateLink: "img/certificate/Coursera-ML.pdf",
-        credentialId: "XXXXXXXX"
+        title: "Ethical Hacking Principles",
+        provider: "SkillUp • Coursera",
+        year: 2025,
+        skill: "Cybersecurity",
+        certificateLink: "https://coursera.org/share/b4583b522d23c2bf04c7ae3f15c91e78"
     },
     {
         id: 3,
-        title: "Java Programming Specialization",
-        description: "",
-        image: "img/certificates/java.png",
-        provider: "Coursera",
-        issuer: "Duke University",
-        year: 2023,
-        skills: ["Java", "Object-Oriented Programming", "Data Structures", "Algorithms"],
-        certificateLink: "img/certificate/Coursera-java.pdf",
-        credentialId: "XXXXXXXX"
+        title: "HTML, CSS & JavaScript",
+        provider: "IBM • Coursera",
+        year: 2024,
+        skill: "webdev",
+        certificateLink: "https://coursera.org/share/34e9d7377075e7158a035798e88ecf3a"
     },
     {
         id: 4,
-        title: "Data Structures and Algorithms Specialization",
-        description: "",
-        image: "img/certificates/dsa.png",
-        provider: "Coursera",
-        issuer: "University of California San Diego",
-        year: 2023,
-        skills: ["Data Structures", "Algorithms", "Problem Solving", "Python", "Java"],
-        certificateLink: "img/certificate/Coursera-dsa.pdf",
-        credentialId: "XXXXXXXX"
+        title: "Data Structures in Java",
+        provider: "University of Pennsylvania • Coursera",
+        year: 2024,
+        skill: "DSA",
+        certificateLink: "https://coursera.org/share/b87e30cca365c4183984a9741d4492d9"
+    },
+    {
+
+        id: 6,
+        title: "Python Project: Email spam detector",
+        provider: "Lets Upgrade",
+        year: 2024,
+        skill: "Python",
+        certificateLink: "img/certificate/python.pdf"
     },
     {
         id: 5,
-        title: "Ethical Hacking Specialization",
-        description: "",
-        image: "img/certificates/ethical-hacking.png",
-        provider: "Coursera",
-        issuer: "University of Colorado",
-        year: 2023,
-        skills: ["Cybersecurity", "Ethical Hacking", "Penetration Testing", "Network Security"],
-        certificateLink: "img/certificate/Coursera-ethical-hacking.pdf",
-        credentialId: "XXXXXXXX"
+        title: "Introduction to Java",
+        provider: "LearnQuest • Coursera",
+        year: 2024,
+        skill: "Java",
+        certificateLink: "https://coursera.org/share/6e16f1116908e8d55d15997e024978dd"
     }
 ];
 
@@ -192,8 +192,11 @@ let currentTheme = localStorage.getItem('theme') || 'light';
 // Initialize
 document.addEventListener('DOMContentLoaded', function () {
     initializeTheme();
-    renderProjects();
-    renderCertificates();
+    // Wait for Iconify to load before rendering
+    setTimeout(() => {
+        renderProjects();
+        renderCertificates();
+    }, 100);
     setupEventListeners();
     createFloatingDots();
     setupDropdowns();
@@ -229,6 +232,8 @@ function updateThemeIcon() {
 
 // Project rendering
 function renderProjects() {
+    if (!projectsGrid) return;
+    
     projectsGrid.innerHTML = '';
 
     if (filteredProjects.length === 0) {
@@ -242,7 +247,8 @@ function renderProjects() {
 
     // Check if we're on the index page (limit to 4 projects)
     const isIndexPage = window.location.pathname.includes('index.html') || window.location.pathname === '/' || window.location.pathname === '';
-    const projectsToShow = isIndexPage ? filteredProjects.slice(0, 4) : filteredProjects.sort((a,b)=>b.year-a.year);
+    const sortedProjects = filteredProjects.sort((a,b) => b.year - a.year || b.id - a.id);
+    const projectsToShow = isIndexPage ? sortedProjects.slice(0, 4) : sortedProjects;
 
     projectsToShow.forEach(project => {
         const projectCard = createProjectCard(project);
@@ -272,7 +278,7 @@ function createProjectCard(project) {
 
     const liveLinkIcon = project.liveLink ?
         `| <a href="${project.liveLink}" target="_blank" rel="noopener noreferrer" class="live-link">
-            <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:15px"></i>
+            <iconify-icon icon="mdi:open-in-new" width="20" style="color: var(--text-primary) "};"></iconify-icon>
         </a>` : '';
 
     card.innerHTML = `
@@ -286,7 +292,7 @@ function createProjectCard(project) {
                     ${liveLinkIcon}
                 </h3>
                 <a href="${project.githubLink}" target="_blank" rel="noopener noreferrer" class="github-link">
-                    <i class="fab fa-github"></i>
+                    <iconify-icon icon="mdi:github" width="22"></iconify-icon>
                 </a>
             </div>
             <p class="project-description">${project.description}</p>
@@ -352,36 +358,51 @@ function renderCertificates() {
 
 function createCertificateCard(certificate) {
     const card = document.createElement('div');
-    card.className = 'project-card';
+    card.className = 'certificate-card';
 
-    // Create tags array with provider and skills
-    const allTags = [certificate.provider, ...certificate.skills, certificate.year.toString()];
+    // Map certificate providers to Iconify icons
+    const providerIcons = {
+        'Coursera': 'simple-icons:coursera',
+        'edX': 'simple-icons:edx',
+        'Udemy': 'simple-icons:udemy',
+        'LinkedIn': 'simple-icons:linkedin',
+        'Google': 'simple-icons:google',
+        'Microsoft': 'simple-icons:microsoft',
+        'Amazon': 'simple-icons:amazon',
+        'IBM': 'simple-icons:ibm'
+    };
+
+    // Map skills to Iconify icons
+    const skillIcons = {
+        'Python': 'simple-icons:python',
+        'Java': 'la:java',
+        'Machine Learning': 'simple-icons:tensorflow',
+        'DSA': 'hugeicons:structure-04',
+        'Cybersecurity': 'mingcute:safe-lock-fill',
+        'webdev':'si:json-duotone'
+    };
+
+    const providerIcon = providerIcons[certificate.provider] || 'mdi:certificate';
+    const skillIcon = skillIcons[certificate.skill] || 'mdi:code-tags';
 
     card.innerHTML = `
-        <div class="project-image">
-            <img src="${certificate.image}" alt="${certificate.title}" class="project-img"/>
-        </div>
-        <div class="project-content">
-            <div class="project-header">
-                <h3 class="project-title">${certificate.title}</h3>
-                <a href="${certificate.certificateLink}" target="_blank" rel="noopener noreferrer" class="github-link" title="View Certificate">
-                    <i class="fas fa-certificate"></i>
-                </a>
+        <div class="certificate-content">
+            <div class="certificate-left">
+                <div class="certificate-logo">
+                    <iconify-icon icon="${skillIcon}" width="40" style="color: var(--bg-primary);"></iconify-icon>
+                </div>
+                <div class="certificate-info">
+                    <h3 class="certificate-title">${certificate.title}</h3>
+                    <p class="certificate-provider">${certificate.provider}</p>
+                </div>
             </div>
-            <div class="project-tags">
-                ${allTags.map(tag => `<span class="project-tag">${tag}</span>`).join('')}
+            <div class="certificate-right">
+                <a href="${certificate.certificateLink}" target="_blank" rel="noopener noreferrer" class="certificate-link">
+                    <iconify-icon icon="mdi:open-in-new" width="20"></iconify-icon>
+                </a>
             </div>
         </div>
     `;
-
-    // Add hover animation
-    card.addEventListener('mouseenter', function () {
-        this.style.transform = 'translateY(-4px)';
-    });
-
-    card.addEventListener('mouseleave', function () {
-        this.style.transform = 'translateY(0)';
-    });
 
     return card;
 }
@@ -419,12 +440,20 @@ function setupEventListeners() {
 
     // Refresh button (only on projects page)
     if (refreshBtn) {
-        refreshBtn.addEventListener('click', function () {
+        refreshBtn.addEventListener('click', function (e) {
             const svg = this.querySelector('svg');
             svg.style.transform = 'rotate(360deg)';
             setTimeout(() => {
                 svg.style.transform = 'rotate(0deg)';
             }, 500);
+
+            // Create rainbow dot
+            const dot = document.createElement('div');
+            dot.className = 'rainbow-dot';
+            dot.style.left = e.clientX - 10 + 'px';
+            dot.style.top = e.clientY - 10 + 'px';
+            document.body.appendChild(dot);
+            setTimeout(() => dot.remove(), 3000);
 
             // Reset filters
             if (filterInput) {
@@ -524,10 +553,8 @@ function filterCertificates(query) {
     } else {
         filteredCertificates = certificates.filter(certificate =>
             certificate.title.toLowerCase().includes(searchTerm) ||
-            certificate.description.toLowerCase().includes(searchTerm) ||
             certificate.provider.toLowerCase().includes(searchTerm) ||
-            certificate.issuer.toLowerCase().includes(searchTerm) ||
-            certificate.skills.some(skill => skill.toLowerCase().includes(searchTerm))
+            certificate.skill.toLowerCase().includes(searchTerm)
         );
     }
 
