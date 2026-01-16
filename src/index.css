@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8f9fa;
+    --text-primary: #000000;
+    --text-secondary: #6b7280;
+    --text-muted: #9ca3af;
+    --border-color: #e5e7eb;
+    --accent-color: #000000;
+  }
+
+  [data-theme="dark"] {
+    --bg-primary: #000000;
+    --bg-secondary: #111111;
+    --text-primary: #ffffff;
+    --text-secondary: #d1d5db;
+    --text-muted: #6b7280;
+    --border-color: #374151;
+    --accent-color: #ffffff;
+  }
+
+  [data-theme="cyber"] {
+    /* --bg-primary: #0a0e0a;
+    --bg-secondary: #0f1f0f;
+    --text-primary: #00ff00;
+    --text-secondary: #00cc00;
+    --text-muted: #008800;
+    --border-color: #00ff0033;
+    --accent-color: #00ff00; */
+    --bg-primary: #0b0614;
+    --bg-secondary: #150b2e;
+    --text-primary: #d8c7e4;
+    --text-secondary: #a855f7;
+    --text-muted: #7c3aed;
+    --border-color: #c77dff33;
+    --accent-color: #c77dff;
+  }
+
+  @keyframes float-dots {
+    0% { transform: translateY(100vh); opacity: 0; }
+    10% { opacity: 0.3; }
+    90% { opacity: 0.5; }
+    100% { transform: translateY(-100px) ; opacity: 0.8; }
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  @keyframes cyberGlitch {
+    0% { transform: translateX(0) scaleX(1); filter: hue-rotate(0deg); }
+    10% { transform: translateX(-5px) scaleX(0.98) skew(-2deg); filter: hue-rotate(90deg); }
+    15% { transform: translateX(5px) scaleX(1.02) skew(2deg); filter: hue-rotate(180deg); }
+    25% { transform: translateX(-3px) scaleX(0.99) skew(-1deg); filter: hue-rotate(270deg); }
+    35% { transform: translateX(3px) scaleX(1.01) skew(1deg); filter: hue-rotate(360deg); }
+    45% { transform: translateX(-2px) scaleX(0.995) skew(-0.5deg); filter: hue-rotate(45deg); }
+    55% { transform: translateX(2px) scaleX(1.005) skew(0.5deg); filter: hue-rotate(135deg); }
+    65% { transform: translateX(-1px) scaleX(0.998) skew(-0.2deg); filter: hue-rotate(225deg); }
+    75% { transform: translateX(1px) scaleX(1.002) skew(0.2deg); filter: hue-rotate(315deg); }
+    85% { transform: translateX(0) scaleX(1); filter: hue-rotate(0deg); }
+    100% { transform: translateX(0) scaleX(1); filter: hue-rotate(0deg); }
+  }
+
+  .cyber-transition {
+    filter: url(#filter-1);
+    animation: screenGlitch 0.8s ease-in-out;
+  }
+
+  @keyframes screenGlitch {
+    0% { filter: none; }
+    20% { filter: url(#filter-1); }
+    50% { filter: url(#filter-2); }
+    80% { filter: url(#filter-3); }
+    100% { filter: none; }
+  }
+}
