@@ -8,6 +8,9 @@ export default function BlogDetail() {
   const id = Number(searchParams.get("id"))
   const blog = blogs.find(b => b.id === id)
 
+  // you think i'm fool?
+  const isDisabled = blog?.disable || blog?.disble
+
   if (!blog) {
     return (
       <PageWrapper>
@@ -27,7 +30,7 @@ export default function BlogDetail() {
       <Header showBack />
 
       {/* Blog Header */}
-      <div className="mb-8 p-6 bg-[var(--bg-secondary)]/80 border border-[var(--border-color)] rounded-2xl backdrop-blur">
+      <div className={`mb-8 p-6 bg-[var(--bg-secondary)]/80 border border-[var(--border-color)] rounded-2xl backdrop-blur ${isDisabled ? 'blur-sm' : ''}`}>
         <h1 className="text-3xl font-bold text-[var(--accent-color)] mb-2">
           {blog.title}
         </h1>
@@ -35,8 +38,14 @@ export default function BlogDetail() {
       </div>
 
       {/* Blog Content */}
-      <div className="p-6 bg-[var(--bg-secondary)]/80 border border-[var(--border-color)] rounded-2xl backdrop-blur space-y-6">
-        {blog.content.map((block, index) => {
+      <div className={`p-6 bg-[var(--bg-secondary)]/80 border border-[var(--border-color)] rounded-2xl backdrop-blur space-y-6 ${isDisabled ? 'blur-sm' : ''}`}>
+        {isDisabled ? (
+          <div className="text-center py-16">
+            <h2 className="text-2xl font-bold mb-2 text-[var(--accent-color)]">This is disabled</h2>
+            <p className="text-[var(--text-muted)]">This content is currently unavailable.</p>
+          </div>
+        ) : (
+          blog.content.map((block, index) => {
           switch (block.type) {
             case "paragraph":
               return (
@@ -66,7 +75,7 @@ export default function BlogDetail() {
                   <img
                     src={block.src}
                     alt={block.alt || ""}
-                    className="rounded-xl border border-[var(--border-color)] max-w-full"
+                    className={`rounded-xl border border-[var(--border-color)] max-w-full ${isDisabled ? 'blur-sm' : ''}`}
                   />
                 </div>
               )
@@ -88,7 +97,8 @@ export default function BlogDetail() {
             default:
               return null
           }
-        })}
+        })
+        )}
       </div>
 
       {/* Footer */}

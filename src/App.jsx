@@ -59,9 +59,8 @@ function App() {
             <p className="text-sm text-[var(--text-secondary)] mb-4">{profileDesc}</p>
             <div className="flex gap-2 mb-3">
               <a href="https://linkedin.com/in/vedant-joshi-og" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--accent-color)] transition"><Icon icon="mdi:linkedin" width="24" /></a>
-              <a href="https://github.com/vemacitrind" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--accent-color)] transition"><Icon icon="mdi:github" width="24" /></a>
-              <a href="https://www.hackerrank.com/profile/vemacitrind" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--accent-color)] transition"><Icon icon="cib:hackerrank" width="24" /></a>
-              <a href="https://x.com/vemacitrind" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--accent-color)] transition"><Icon icon="ri:twitter-x-fill" width="24" /></a>
+              <a href="https://github.com/vedant-joshi-og" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--accent-color)] transition"><Icon icon="mdi:github" width="24" /></a>
+              <a href="https://leetcode.com/u/vemacitrind/" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--accent-color)] transition"><Icon icon="devicon-plain:leetcode" width="24" /></a>
               <a href="https://app.hackthebox.com/profile/2226776" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--accent-color)] transition"><Icon icon="simple-icons:hackthebox" width="24" /></a>
             </div>
             <div className="flex items-center gap-2 text-sm text-[var(--text-muted)] mb-3">

