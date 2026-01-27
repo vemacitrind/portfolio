@@ -448,8 +448,9 @@
         "text":"Okay, From the diagram image, I can see there is an Interprise network with 3 VLANs. This box is more about how a single VLAN can cause a big security issue in entire network."
       },
       {
-        "type":"parse",
-        "html":"<div><p>And for the flags it it's hidden in somewhere in the system [<a href=\"https://attack.mitre.org/techniques/T1005/\" style=\"text-decoration: underline;\">MITREATT&CK</a>]</p></div>"
+        "type":"image",
+        "alt":"mind blown",
+        "src":"/img/gif/workinprogress.gif"
       }
     ]
   }
